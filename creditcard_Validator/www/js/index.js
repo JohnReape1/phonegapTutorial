@@ -65,7 +65,11 @@ $(document).ready(function(){
 	});
 	function checkCard(card){
 		var c = card;
-		var cl = parseInt(c.substr(c.length - 1));
+		var num = parseInt(c.substr(c.length - 1));
+		if(num==0000000000000000)
+		{
+			return false;
+		}
 		var c = c.slice(0,-1)
 		var c = c.split("").reverse().join("");
 		var c = c.split("");
@@ -80,8 +84,13 @@ $(document).ready(function(){
 		}
 		var f = 0;
 		for (var i = 0; i < cm.length; i++) {f += cm[i];}
-		f = f + cl;
-		if (f%10 == 0){return true;}else{return false;}
+		f = f + num;
+		if (f%10 == 0){
+			return true;
+			}
+			else{
+				return false;
+				}
 	}
     
 });
